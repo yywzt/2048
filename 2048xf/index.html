@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>2048</title>
+<link rel="stylesheet" type="text/css" href="index.css" />
+<script type="text/javascript"  src="jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="support2048.js"></script>
+<script type="text/javascript" src="showanimation2048.js"></script>
+<script type="text/javascript" src="main2048.js"></script>
+<script type="text/javascript" src="right.js"></script>
+<script type="text/javascript" src="down.js"></script>
+<script type="text/javascript" src="up.js"></script>
+<script type="text/javascript" src="btncontrol.js"></script>
+<script type="text/javascript" src="scores.js"></script>
+<link href="font_f9ou290qbvabrzfr/iconfont.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <h1 id="h2048">2048</h1>
+        <a href="javascript:newgame();" id="newgamebutton">New Game</a>
+        <p>
+          <a id="ascore">  score:</a><span id="score">0</span>
+        </p>
+    </header>
+    <div id="grid-container">
+  
+        <div class="grid-cell" id="grid-cell-0-0"></div>
+        <div class="grid-cell" id="grid-cell-0-1"></div>
+        <div class="grid-cell" id="grid-cell-0-2"></div>
+        <div class="grid-cell" id="grid-cell-0-3"></div>
+        
+        <div class="grid-cell" id="grid-cell-1-0"></div>
+        <div class="grid-cell" id="grid-cell-1-1"></div>
+        <div class="grid-cell" id="grid-cell-1-2"></div>
+        <div class="grid-cell" id="grid-cell-1-3"></div>
+        
+        <div class="grid-cell" id="grid-cell-2-0"></div>
+        <div class="grid-cell" id="grid-cell-2-1"></div>
+        <div class="grid-cell" id="grid-cell-2-2"></div>
+        <div class="grid-cell" id="grid-cell-2-3"></div>
+        
+        <div class="grid-cell" id="grid-cell-3-0"></div>
+        <div class="grid-cell" id="grid-cell-3-1"></div>
+        <div class="grid-cell" id="grid-cell-3-2"></div>
+        <div class="grid-cell" id="grid-cell-3-3"></div>
+        
+        
+        <div style="width:300px; border-radius:0 20px 20px 0; height:500px; position:absolute; margin-top:-20px; margin-left:-380px;background:-webkit-gradient(linear, 100% 0%, 0% 0%,from(#bbada0), to(rgba(255,255,255,0)));">
+        <div id="timebtn" style="width:60px; height:60px; position:absolute; border-radius:10px; margin-left:100px; margin-top:60px;">
+        <div class="iconfont icon-time " style="height:50px; height:50px; margin-top:5px; margin-left:5px; position:absolute; color:#FFF; font-size:36px;transform:rotate(-90deg); text-align:center; line-height:65px;"></div>
+        <div id="timeshow" style="width:100px; height:30px; position:absolute; margin-top:15px; margin-left:50px; text-align:center; line-height:30px; font-family:Arial; font-size:24px; color:#FFF;"><a id="ghour">0</a>:<a id="gmin">00</a>:<a id="gsec">00</a>
+        </div>
+        </div>
+         <div id="pnnumberbtn" style="width:60px; height:60px; position:absolute;border-radius:10px; margin-left:100px; margin-top:120px;">
+        <div class="iconfont icon-activity" style="height:50px; height:50px; margin-top:0px; margin-left:10px; position:absolute; color:#FFF; font-size:36px; text-align:center; line-height:65px;">
+         <div id="pushnumber" style="width:100px; height:30px; position:absolute; margin-top:-45px; text-align:left; margin-left:50px; line-height:30px; font-family:Arial; font-size:24px; color:#FFF;">0</div>
+        </div>
+        </div>
+        
+        
+        <div id="maxnumbtn" style="width:60px; height:60px; position:absolute;border-radius:10px; margin-left:108px; margin-top:180px;">
+        <div class="iconfont icon-mingxing" style="height:50px; height:50px; margin-top:5px; margin-left:5px; position:absolute; color:#FFF; font-size:30px; text-align:center; line-height:65px;">
+         <div id="maxnumber" style="width:100px; height:30px; position:absolute; margin-top:-45px; text-align:left; margin-left:50px; line-height:30px; font-family:Arial; font-size:24px; color:#FFF;">0</div>
+        </div>
+        </div>
+        
+        
+        </div><!------------------------------------------------------------------------------------------------------------------------------------------------------->
+        
+        
+        
+   	    <div style="width:300px; border-radius:20px 0 0 20px;; height:500px; position:absolute; margin-top:-20px; margin-left:540px;background:-webkit-gradient(linear, 0% 0%, 100% 0%,from(#bbada0), to(rgba(255,255,255,0)));">
+        
+        
+        <div id="upbtn" style="width:60px; height:60px; position:absolute; background:#bbada0;border-radius:10px; margin-left:120px; margin-top:100px;">
+        <div class="iconfont icon-dkw_bofang " style="height:50px; height:50px; margin-top:5px; margin-left:5px; position:absolute; color:#FFF; font-size:36px;transform:rotate(-90deg); text-align:center; line-height:65px;"></div>
+        </div>
+        
+        <div id="leftbtn" style="width:60px; height:60px; position:absolute; background:#bbada0;border-radius:10px; margin-left:50px; margin-top:170px;">
+        <div class="iconfont icon-dkw_bofang " style="height:50px; height:50px; margin-top:5px; margin-left:5px; position:absolute; color:#FFF; font-size:36px;transform:rotate(-180deg); text-align:center; line-height:50px;"></div>
+        </div>
+       
+        <div id="downbtn" style="width:60px; height:60px; position:absolute; background:#bbada0;border-radius:10px; margin-left:120px; margin-top:170px;">
+        <div class="iconfont icon-dkw_bofang " style="height:50px; height:50px; margin-top:5px; margin-left:5px; position:absolute; color:#FFF; font-size:36px;transform:rotate(90deg); text-align:center; line-height:35px;"></div>
+        </div>
+       
+        <div id="rightbtn" style="width:60px; height:60px; position:absolute; background:#bbada0;border-radius:10px; margin-left:190px; margin-top:170px;">
+        <div class="iconfont icon-dkw_bofang " style="height:50px; height:50px; margin-top:5px; margin-left:15px; position:absolute; color:#FFF; font-size:36px;transform:rotate(0deg); line-height:50px;"></div>
+        </div>
+        
+        <div id="closebtn" style="width:60px; height:60px; position:absolute; background:#bbada0;border-radius:10px; margin-left:60px; margin-top:350px;">
+        <div class="iconfont icon-guanbi" style="height:50px; height:50px; margin-top:5px; margin-left:13px; position:absolute; color:#FFF; font-size:36px;transform:rotate(0deg); line-height:50px;"></div>
+        </div>
+        
+          <div id="lightbtn" style="width:60px; height:60px; position:absolute; background:#bbada0;border-radius:10px; margin-left:170px; margin-top:350px;">
+        <div class="iconfont icon-dengpao" style="height:50px; height:50px; margin-top:5px; margin-left:13px; position:absolute; color:#FFF; font-size:36px;transform:rotate(0deg); line-height:50px;"></div>
+        </div>
+      
+      
+      
+        </div><!------------------------------------------------------------------------------------------------------------------------------------------------------->
+    
+      <div id="gameover" style=" width:500px; z-index:5; border-radius:10px; margin-left:-20px; margin-top:-20px; height:500px; position:absolute; background:rgba(0,0,0,0.6); display:none;">
+      <div  style="width:200px; height:50px; position:absolute; margin-left:150px; margin-top:150px; font-family:Arial; color:#FFF; font-size:40px; text-align:center;">本次得分</div>
+      <div id="defen" style="width:200px; height:50px; position:absolute; margin-left:150px; margin-top:210px; font-family:Arial; color:#FFF; font-size:40px; text-align:center;">0</div>
+       <div style="width:200px; height:20px; position:absolute; margin-left:150px; margin-top:270px; font-family:Arial; color:#FFF; font-size:20px; text-align:left;  border-radius:6px; line-height:20px;">
+       移动次数：<a id="caozuonum">0</a>
+       </div>
+      
+       <div  style="width:300px; height:20px; position:absolute; margin-left:150px; margin-top:300px; font-family:Arial; color:#FFF; font-size:20px; text-align:left;  border-radius:6px; line-height:20px;">
+       游戏用时：<a id="gameusetime">0</a>
+       </div>
+       
+        <div id="caozuonum" style="width:200px; height:20px; position:absolute; margin-left:150px; margin-top:330px; font-family:Arial; color:#FFF; font-size:20px; text-align:left;  border-radius:6px; line-height:20px;">
+       最大数块：<a id="maxkuainum">0</a>
+       </div>
+      
+      
+      <div id="restart" onclick="newgame()" style="width:200px; height:60px; position:absolute; margin-left:150px; margin-top:370px; font-family:Arial; color:#FFF; font-size:40px; text-align:center; background:#8f7a66; border-radius:6px; line-height:60px;">Restart</div>
+      </div>
+    
+    </div>
+    
+
+</body>
+<script type="text/javascript">
+var led=1;
+$("#upbtn").click(function(){
+	
+	        moveUp();
+			allclicknum();
+			maxnumber();
+            generateOneNumber();
+            isgameover();
+	
+	})
+
+$("#leftbtn").click(function(){
+	        moveLeft();
+			allclicknum();
+			maxnumber();
+            generateOneNumber();
+            isgameover();
+	
+	})
+	
+$("#downbtn").click(function(){
+	        moveDown();
+			allclicknum();
+			maxnumber();
+            generateOneNumber();
+            isgameover();
+	
+	})
+	
+$("#rightbtn").click(function(){
+	        moveRight();
+			allclicknum();
+			maxnumber();
+            generateOneNumber();
+            isgameover();
+	
+	})
+	
+$("#closebtn").click(function(){
+	        window.close();
+	})
+$("#lightbtn").click(function(){
+	if(led==1){
+	        $("body").css("background","black");
+			$("#score").css("color","#FFF")
+			$("#h2048").css("color","#FFF")
+			$("#ascore").css("color","#FFF")
+			$("#lightbtn").css("background","#e5e2df")
+			led=0;
+	}else{
+		$("body").css("background","#FFF");
+		$("#score").css("color","#000")
+		$("#ascore").css("color","#000")
+		$("#h2048").css("color","#000")
+			$("#lightbtn").css("background","#bbada0")
+			led=1;
+		
+		}
+	})
+	
+	
+	
+$("#upbtn").mousedown(function(){
+	$("#upbtn").css("background","red");     
+	})
+$("#upbtn").mouseup(function(){
+	$("#upbtn").css("background","#bbada0");     
+	})
+
+$("#leftbtn").mousedown(function(){
+	$("#leftbtn").css("background","red");     
+	})
+$("#leftbtn").mouseup(function(){
+	$("#leftbtn").css("background","#bbada0");     
+	})
+	
+$("#downbtn").mousedown(function(){
+	$("#downbtn").css("background","red");     
+	})
+$("#downbtn").mouseup(function(){
+	$("#downbtn").css("background","#bbada0");     
+	})
+	
+$("#rightbtn").mousedown(function(){
+	$("#rightbtn").css("background","red");     
+	})
+$("#rightbtn").mouseup(function(){
+	$("#rightbtn").css("background","#bbada0");     
+	})
+var hh=0;
+var mm=0;
+var ss=0;
+var aa=0
+function timeaddshow(){
+    var gh=document.getElementById("ghour");
+	var gm=document.getElementById("gmin");
+    var gs=document.getElementById("gsec");
+	if(ss<10){
+		gs.innerHTML="0"+ss;
+		ss=ss+1;
+		}
+	else{
+		gs.innerHTML=ss;
+		ss=ss+1;
+		}
+	if(ss>59){
+		ss=0;
+		gs.innerHTML="0"+ss;
+		gm.innerHTML="0"+mm;
+	
+		mm=mm+1;
+		}
+	if(mm<10){
+		gm.innerHTML="0"+mm;
+		}
+	else{
+		gm.innerHTML=mm;
+		}
+	if(mm>59){
+		mm=0;
+		hh=hh+1;
+		gh.innerHTML=hh;
+		}
+	}
+window.onload=setInterval("timeaddshow()",17);
+
+function allclicknum(){
+	aa=aa+1;
+	var pn=document.getElementById("pushnumber");
+	pn.innerHTML=aa;
+	
+	}
+function  maxnumber(){
+	var temp=2;
+	var maxnumarr=new Array();
+	var manu=document.getElementById("maxnumber");
+
+	for(var i=0;i<4;i++){
+		for(var j=0;j<4;j++){
+			maxnumarr[i*4+j]=board[i][j];
+			}
+		}
+	for(var i=0;i<16;i++){
+   if(maxnumarr[i]>temp){
+	   temp= maxnumarr[i];
+	
+	   }
+	}
+	 manu.innerHTML=temp;
+	}
+</script>
+</html>

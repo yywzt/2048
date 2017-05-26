@@ -1,0 +1,35 @@
+// JavaScript Document
+function showNumberWithAnimation(i, j, randNumber) {
+
+    var numberCell = $('#number-cell-' + i + '-' + j);
+    numberCell.css("background-color", getNumberBackgroundColor(randNumber));
+    numberCell.css("color", getNumberColor(randNumber));
+    numberCell.text(randNumber);
+    
+    numberCell.animate({
+        width : "100px",
+        height : "100px",
+        top : getPosTop(i, j),
+        left : getPosLeft(i, j)
+    }, 200).animate({
+        width : "120px",
+        height : "120px",
+    }, 200).animate({
+        width : "100px",
+        height : "100px",
+    }, 200);
+}
+
+function showMoveAnimation(fromx, fromy, tox, toy){
+    
+    var numberCell = $('#number-cell-'+fromx+'-'+fromy);
+    numberCell.animate({top:getPosTop(tox,toy),
+    left:getPosLeft(tox,toy)},200)
+	.animate({
+        width : "120px",
+        height : "120px",
+    }, 200).animate({
+        width : "100px",
+        height : "100px",
+    }, 200);
+}
